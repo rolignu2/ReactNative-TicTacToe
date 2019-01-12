@@ -14,5 +14,10 @@ export default StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         resizeMode : 'cover'
+    },
+    powered : {
+        fontFamily : 'realpolitik',
+        color : 'white',
+        elevation : 2 ,
     }
 });

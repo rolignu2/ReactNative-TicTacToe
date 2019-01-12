@@ -1,0 +1,66 @@
+import React , {Component }         from 'react';
+import {
+    View
+}                                   from 'react-native';
+import  styles                      from './styles';
+import { TicTacButton }             from '../buttons';
+import * as Animatable              from 'react-native-animatable';
+
+
+export default class TicTacMenu extends Component {
+
+    constructor(props){
+        super(props);
+    }
+
+
+    _new2PlayerGame = ()=>{
+        return (
+            <Animatable.View animation={'slideInRight'} duration={500} delay={100} >
+                <TicTacButton
+                    disabled={false}
+                    title={' TWO PLAYER GAME '} 
+                    style={{ opacity : .8 , backgroundColor : 'white' }} 
+                    action={()=>{ alert() }}
+                />
+            </Animatable.View>
+        );
+    }
+
+    _currentGame = ()=>{
+        return (
+            <Animatable.View animation={'slideInRight'} duration={500} delay={100} >
+                <TicTacButton
+                    disabled={false}
+                    title={'   CONTINUE GAME   '} 
+                    style={{ opacity : .8 , backgroundColor : 'white' }} 
+                    action={()=>{ alert() }}
+                />
+            </Animatable.View>
+        );
+    }
+
+    _options = ()=>{
+        return (
+            <Animatable.View animation={'slideInLeft'} duration={500} delay={100} >
+                <TicTacButton
+                    disabled={false}
+                    title={'   MENU OPTIONS    '} 
+                    style={{ opacity : .8 , backgroundColor : 'white' }} 
+                    action={()=>{ alert() }}
+                />
+            </Animatable.View>
+        );
+    }
+
+    render = ()=>{
+        return (
+            <View style={styles.container}>
+                {this._currentGame()}
+                {this._new2PlayerGame()}
+                {this._options()}
+            </View>
+        )
+    }
+
+}

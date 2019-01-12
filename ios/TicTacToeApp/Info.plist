@@ -74,6 +74,25 @@
 		<string>SimpleLineIcons.ttf</string>
 		<string>Zocial.ttf</string>
 		<string>tictac.ttf</string>
+		<string>realpolitik.ttf</string>
+		<string>realpolitik3d.ttf</string>
+		<string>realpolitik3dital.ttf</string>
+		<string>realpolitikbold.ttf</string>
+		<string>realpolitikboldital.ttf</string>
+		<string>realpolitikcond.ttf</string>
+		<string>realpolitikcondital.ttf</string>
+		<string>realpolitikexpand.ttf</string>
+		<string>realpolitikexpandital.ttf</string>
+		<string>realpolitikital.ttf</string>
+		<string>realpolitikleft.ttf</string>
+		<string>realpolitikout.ttf</string>
+		<string>realpolitikoutital.ttf</string>
+		<string>realpolitikoutsemital.ttf</string>
+		<string>realpolitiksemibold.ttf</string>
+		<string>realpolitiksemiboldital.ttf</string>
+		<string>realpolitiksemiboldsemital.ttf</string>
+		<string>realpolitiksemital.ttf</string>
+		<string>realpolitiksuperital.ttf</string>
 	</array>
 </dict>
 </plist>
