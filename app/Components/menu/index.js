@@ -9,6 +9,7 @@ import { TicTacButton }             from '../buttons';
 import * as Animatable              from 'react-native-animatable';
 import { Toast, Text }                    from 'native-base';
 import TicModal from '../commons/TicModal';
+import TicTacStorage from '../../Libraries/storage';
 
 
 export default class TicTacMenu extends Component {
