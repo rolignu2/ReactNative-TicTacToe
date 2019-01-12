@@ -18,18 +18,21 @@ export class StaticMemory  {
                 {
                     name        : 'DayTime',
                     color       : 'white',
+                    back        : 'black',
                     opacity     : .9,
                     default     : true 
                 },
                 {
                     name        : 'Dark',
                     color       : 'black',
+                    back        : 'white',
                     opacity     : .9,
                     default     : false  
                 },
                 {
                     name        : 'Blue',
                     color       : '#1c1570',
+                    back        : 'white',
                     opacity     : .9,
                     default     : false  
                 }
@@ -39,7 +42,7 @@ export class StaticMemory  {
 
     static currentGame = {
          existGame      : false,
-         gameData       : []
+         gameData       : null 
     }
 
     static currentOptions = {
@@ -48,7 +51,22 @@ export class StaticMemory  {
     }
 
     static setCurrentOptions = (type , theme )=>{
-        StaticMemory.currentOptions = { type , theme  };
+        if (type !== null  && theme !== null) 
+            StaticMemory.currentOptions = { type , theme  };
+        else {
+            if (type !== null)  StaticMemory.currentOptions.type = type;
+            if (theme !== null )  StaticMemory.currentOptions.theme = theme;
+        }
     }
+
+    static setCurrentTheme  = (theme) =>{
+        StaticMemory.currentOptions.theme =  theme ;
+    }
+
+    static setCurrentGameType = (type) =>{
+        StaticMemory.currentOptions.type=  type ;
+    }
+
+    static getCurrentOptions = () =>{ return StaticMemory.currentOptions; }
 
 }

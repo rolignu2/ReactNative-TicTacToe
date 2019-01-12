@@ -10,6 +10,7 @@ import * as Animatable              from 'react-native-animatable';
 import { Toast, Text }                    from 'native-base';
 import TicModal from '../commons/TicModal';
 import TicTacStorage from '../../Libraries/storage';
+import GameOptions from './gameOptions';
 
 
 export default class TicTacMenu extends Component {
@@ -103,18 +104,10 @@ export default class TicTacMenu extends Component {
     }
 
     _modalOptions = ()=>{
-        return (
-            <TicModal
-                isVisible={this.state.modalVisible}
-                backCallback={()=> this.setState({ modalVisible : false  }) }
-            >
-                
-               <View style={{ alignItems : 'center' }}>
-                    <Text style={styles.modal_options_title}>{'GAME OPTIONS'}</Text>
-               </View>
-                  
-            </TicModal>
-        );
+         return <GameOptions 
+            isVisible={this.state.modalVisible} 
+            callback={ ()=> this.setState({ modalVisible : false  }) } 
+         />
     }
 
 

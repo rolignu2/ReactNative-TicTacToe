@@ -59,16 +59,17 @@ export default class TicTacStorage  {
         });
     }
 
-    setGameOptions = ( gameType ={} , gameTheme ={} )=>{
+    setGameOptions = ( gameType =null  , gameTheme =null )=>{
         StaticMemory.setCurrentOptions(gameType , gameTheme);
-        global.storage.save({
-            key         : this.storageKeys.gameOptions,
-            id          : 'G001',
-            data        : {
-                type    : gameType ,
-                theme   : gameTheme
-            }
-        });
+        if (gameType !== null && gameTheme !== null)
+            global.storage.save({
+                key         : this.storageKeys.gameOptions,
+                id          : 'G001',
+                data        : {
+                    type    : gameType ,
+                    theme   : gameTheme
+                }
+            });
     }
 
 

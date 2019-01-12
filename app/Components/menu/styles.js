@@ -12,5 +12,9 @@ export default StyleSheet.create({
          fontSize : 20 ,
          fontFamily         : 'realpolitik',
          color : 'black'
+     },
+     game_options_select :{
+        fontFamily         : 'realpolitik',
+        color : 'black'
      }
 });
