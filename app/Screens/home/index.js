@@ -25,7 +25,7 @@ export default class HomeScreen extends Component {
             <Container style={styles.container}>
                  <ImageBackground style={styles.bg} source={_IMAGES_.background} >
                      <TicTacTitle />
-                     <View style={{ marginBottom: 30 }}>
+                     <View style={{ marginBottom:  5 }}>
                         <Text style={styles.powered} >{'Powered by Rolando And Applaudo'}</Text>
                      </View>
                      <TicTacMenu navigation={this.props.navigation} />

@@ -7,7 +7,7 @@ export default StyleSheet.create({
     },
     title_view :{
         // marginTop    : '25%',
-        marginTop : 100 ,
+        marginTop : 50 ,
         marginBottom : 50,
         flexDirection : 'row'
     },
