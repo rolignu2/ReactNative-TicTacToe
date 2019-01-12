@@ -31,7 +31,7 @@ export default class TicTacMenu extends Component {
                     disabled={false}
                     title={' TWO PLAYER GAME '} 
                     style={{ opacity : .8 , backgroundColor : 'white' }} 
-                    action={ () => navigation.navigate('BeginGameScreen') }
+                    action={ () => navigation.navigate('NewGameScreen') }
                 />
             </Animatable.View>
         );
