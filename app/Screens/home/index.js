@@ -1,5 +1,14 @@
-import  React , {Component} from 'react';
-import { Container } from 'native-base';
+import  React , {Component}     from 'react';
+import {
+    ImageBackground,
+}                               from 'react-native';
+import { 
+    Container, 
+}                               from 'native-base';
+import styles                   from './styles';
+import { _IMAGES_ }             from '../../Config';
+import { TicTacTitle } from '../../Components/titles';
+
 
 export default class HomeScreen extends Component {
 
@@ -10,10 +19,13 @@ export default class HomeScreen extends Component {
 
     render = ()=>{
         return (
-            <Container>
-                
+            <Container style={styles.container}>
+                 <ImageBackground style={styles.bg} source={_IMAGES_.background} >
+                     <TicTacTitle />
+                 </ImageBackground>
             </Container>
         );
     }
 
 }
+
