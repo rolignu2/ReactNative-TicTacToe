@@ -18,10 +18,10 @@ export default class TicTacStorage  {
         this.storageKeys = {
             gameOptions         : "gameOPtions",
             gameHistory         : "gameHis",
-            game                : "currentGame"
+            game                : "currentGame",
+            names               : "playerNames"
         }
     }
-
 
     verifyStorage = ( callback =()=>{}) =>{
        Promise.all([
@@ -72,6 +72,35 @@ export default class TicTacStorage  {
             });
     }
 
+    setCurrentGame = ( game )=>{
+        global.storage.save({
+            key         : this.storageKeys.game,
+            id          : 'GA001',
+            data        : game 
+        });
+    }
+
+    setPlayerNames = (name)=>{
+        name = String(name).toUpperCase();
+        global.storage.save({
+            key         : this.storageKeys.names,
+            id          : name,
+            data        : name
+        });
+    }
+
+    getAllNames = ( callback = ()=>{} ) =>{
+        storage.getAllDataForKey(this.storageKeys.names).then( values =>{
+            
+            if ( values instanceof Array )
+              if (values.length !== 0) {
+                  callback( { status : true , value : values } )
+                  return;
+              }
+          
+            callback({ status : false , value : [] })
+        });
+    }
 
 
 }

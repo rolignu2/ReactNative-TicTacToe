@@ -37,6 +37,32 @@ export class StaticMemory  {
                     default     : false  
                 }
             ]
+        },
+        game  : {  
+            p1 : {
+                
+                /**
+                 * status refers to who won 
+                 * 0 = draw,
+                 * 1 = win , 
+                 * 2 = lose
+                 */
+
+                name        : "Player 1",
+                score       : 0 ,
+                symbol      : "X",
+                date        : new Date(),
+                status      : 0,
+                moves       : []
+            },
+            p2 : {
+                name        : "Player 2",
+                score       : 0 ,
+                symbol      : "0",
+                date        : new Date(),
+                status      : 0,
+                moves       : []
+            }
         }
     }
 

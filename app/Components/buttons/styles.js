@@ -11,5 +11,10 @@ export default StyleSheet.create({
         fontFamily : 'realpolitik3d',
         color : 'black',
         fontSize : 25,
+    },
+    title_text_bordered : {
+        fontFamily : 'realpolitik3d',
+        color : 'white',
+        fontSize : 25,
     }
 });

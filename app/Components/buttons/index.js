@@ -8,12 +8,12 @@ import {
 import styles                       from './styles';
 
 export const TicTacButton = props =>{
-    const {title , icon , action , style , disabled} = props;
+    const {title , icon , action , style , disabled , bordered = false } = props;
     return (
         <View style={styles.container}>
-            <Button disabled={disabled} onPress={action} iconLeft rounded style={[style ]} >
+            <Button bordered={bordered} light disabled={disabled} onPress={action} iconLeft rounded style={[ bordered ? {  } : style ]} >
                 <Icon type={'FontAwesome'} name={icon} style={[ { fontSize : 15 } , style ]} />
-                <Text style={styles.title_text}>{title}</Text>
+                <Text style={[ !bordered ? styles.title_text : styles.title_text_bordered ]}>{title}</Text>
             </Button>
         </View>
     );
