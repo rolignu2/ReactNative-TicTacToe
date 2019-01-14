@@ -13,6 +13,7 @@ import {
 }                                   from 'native-base';
 import * as Animatable              from 'react-native-animatable';
 import { TicTacButton }             from '../../Components/buttons';
+import { TicSolve }                 from '../../Libraries';
 
 const AnimatedRow =  Animatable.createAnimatableComponent(Row);
 
@@ -32,6 +33,11 @@ export default class TicCurrentGame extends Component {
                 date        : new Date(),
                 status      : 0,
                 moves       : []
+            },
+            result          : {
+                status      : TicSolve.gameStatus.INCOMPLETE,
+                winning     : "X",
+                winningLine : []
             }
         }
         this.bgColor    = this.options.theme.color;
@@ -83,21 +89,23 @@ export default class TicCurrentGame extends Component {
 
     _createMove = ( row  , col )=>{
        
-        const {gameBoard , currentPlayer } = this.state;
+        const {gameBoard , currentPlayer , gameOrder } = this.state;
+
         let board           = Object.assign(gameBoard , {});
         board[row][col]     = currentPlayer.symbol;
-
-        console.log(board);
-        this.setState({ gameBoard : board });
+        const result        = TicSolve.getResult(gameBoard , currentPlayer.symbol , gameOrder );
+        
+        this.setState({ gameBoard : board , result });
     }
 
     _buildRowInBoard = (rows , col , heightCol ) =>{
-        const { gameOrder}      = this.state;
-        const heightRow         = (heightCol / gameOrder);
-        let rowsBoard           = rows.map( (data , index)=>{
+        const { gameOrder , result}      = this.state;
+        const heightRow                 = (heightCol / gameOrder);
+        let rowsBoard                   = rows.map( (data , index)=>{
 
             let stylesRow    = {};
             let animated     = 'fadeInRight'
+            let bordered     = false ;
             if (gameOrder == 3) stylesRow = this._drawLines(col , index);
 
             switch(index){
@@ -105,6 +113,15 @@ export default class TicCurrentGame extends Component {
                     animated = 'fadeInLeft'
                 case 2 : 
                     animated = 'fadeInUp'
+            }
+
+            if (result.winningLine.length !== 0){
+                for (let i = 0 ; i < gameOrder ; i++){
+                    if (JSON.stringify(result.winningLine[i]) === JSON.stringify([col , index])){
+                        bordered = true ;
+                        break;
+                    }
+                } 
             }
 
             return (
@@ -115,7 +132,14 @@ export default class TicCurrentGame extends Component {
                      key={String("col[" + col + "]" + "[" + index +"]")} 
                      style={[{ backgroundColor : this.bgColor , height : heightRow , borderColor : this.foreColor} , stylesRow]} 
                 >
-                    <Button onPress={() => this._createMove(col , index) } block transparent style={{  height : 90 , flex : 1 , marginHorizontal : 5 }} >
+                    <Button 
+                        onPress={() => this._createMove(col , index) }
+                        block
+                        transparent
+                        bordered={bordered}
+                        disabled={result.status === TicSolve.gameStatus.INCOMPLETE ? false : true }
+                        style={{  height : 90 , flex : 1 , marginHorizontal : 5 ,  borderColor : 'red' }} 
+                    >
                         <Text style={[{ color : this.foreColor } , styles.button_symbol]} >{data}</Text>
                     </Button>
                 </AnimatedRow>
@@ -147,15 +171,11 @@ export default class TicCurrentGame extends Component {
 
     render = ()=>{
         const {navigation } = this.props;
-
-        console.log("UPDATE DATA " , this.state.gameBoard)
-
         return (
             <Container style={{ 
                 backgroundColor : this.bgColor ,
                  marginColor : 'blue'  , 
-                 justifyContent : 'center' , 
-                // flexDirection : 'row' , 
+                 justifyContent : 'center',
                  alignItems : 'center'  
             }}>
                 
@@ -163,7 +183,7 @@ export default class TicCurrentGame extends Component {
                         {this._buildBoard()}
                 </Grid>
                 <View>
-                    <TicTacButton title={'MENU'} action={ ()=>{ navigation.goBack(); }} />
+                    <TicTacButton title={'MENU'} action={ ()=>{ navigation.navigate('Home'); }} />
                 </View>
             </Container>
         );

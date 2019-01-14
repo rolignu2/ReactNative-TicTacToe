@@ -1,18 +1,19 @@
 
-class TicSolve {
+export class TicSolve {
 
     static gameStatus = {
          INCOMPLETE : 0 ,
-         COMPLETE   : 1 ,
+         WINNER     : 1 ,
          TIE        : 2 ,
     }
 
     static getResult = ( board , symbol , order = 3 )=>{
 
+
         const moves     = TicSolve._countMoves(board);
 
         let   result    = {
-            status      : TicSolve.INCOMPLETE,
+            status      : TicSolve.gameStatus.INCOMPLETE,
             winning     : symbol,
             winningLine : []
         };
@@ -22,11 +23,10 @@ class TicSolve {
         let line;
         let i = 0 ;
 
-        // check diagonal winner
         for (i = 0 ; i < order ; i++){
             line = board[i].join('');
             if (TicSolve._verifyLine(line , symbol)){
-                result.status           = TicSolve.COMPLETE;
+                result.status           = TicSolve.gameStatus.WINNER;
                 result.winningLine      = [[i,0], [i,1], [i,2]];
                 return result;
             }
@@ -34,11 +34,11 @@ class TicSolve {
 
         
         for (let i = 0 ; i < order ; i++){
-            let column = [board[0][j],board[1][j],board[2][j]];
+            let column = [board[0][i],board[1][i],board[2][i]];
             line       = column.join('');
             if (TicSolve._verifyLine(line , symbol)){
-                result.status           = TicSolve.COMPLETE;
-                result.winningLine      = [[0,j], [1,j], [2,j]];
+                result.status           = TicSolve.gameStatus.WINNER;
+                result.winningLine      = [[0,i], [1,i], [2,i]];
                 return result
             }
         }
@@ -47,7 +47,7 @@ class TicSolve {
         line    = d1.join('');
 
         if (TicSolve._verifyLine(line , symbol)){
-            result.status           = TicSolve.COMPLETE;
+            result.status           = TicSolve.gameStatus.WINNER;
             result.winningLine      = [[0,0], [1,1], [2,2]] ;
             return result
         }
@@ -56,14 +56,13 @@ class TicSolve {
         line    = d2.join('');
 
         if (TicSolve._verifyLine(line , symbol)){
-            result.status           = TicSolve.COMPLETE;
+            result.status           = TicSolve.gameStatus.WINNER;
             result.winningLine      = [[0,2], [1,1], [2,0]];
             return result
         }
 
-
         if (moveCount(board) === Math.pow(order , 2)){
-            result.status           = TicSolve.COMPLETE;
+            result.status           = TicSolve.gameStatus.TIE;
             result.winningLine      = [[0,2], [1,1], [2,0]];
             return result;
         }
@@ -72,17 +71,13 @@ class TicSolve {
 
     }
 
-    static createMove = (board , symbol , col , row )=>{
-       
-    }
-
     static _countMoves = (board) => {
 
         let count = 0 ;
 
         for (let i = 0; i<board.length; i++){
             for (let j = 0 ; j<board[i].length ; j++){
-              if (board[i][j]!=""){
+              if (board[i][j]  !== ""){
                 count++
               }
             }
