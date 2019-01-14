@@ -56,6 +56,7 @@ export default class TicTacMenu extends Component {
 
     _currentGameButton = ()=>{
         const {navigation} = this.props;
+        if (!this.game.existGame) return null;
         return (
             <Animatable.View animation={'slideInRight'} duration={500} delay={100} >
                 <TicTacButton
