@@ -13,7 +13,6 @@ export default StyleSheet.create({
     },
     title_text : {
         fontFamily : Platform.OS == 'ios' ? 'TheHistoriaDemo' : 'tictac',
-        color : 'white',
         fontSize : 60
     }
 });

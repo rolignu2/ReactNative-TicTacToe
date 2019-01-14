@@ -9,13 +9,15 @@ import {
     Row, 
     Button, 
     Text,
-    Footer
+    Title
 }                                   from 'native-base';
 import * as Animatable              from 'react-native-animatable';
 import { TicTacButton }             from '../../Components/buttons';
 import { TicSolve }                 from '../../Libraries';
+import { TicTacTitle }              from '../../Components/titles';
 
-const AnimatedRow =  Animatable.createAnimatableComponent(Row);
+const AnimatedRow       =  Animatable.createAnimatableComponent(Row);
+const AnimatedTitle     =  Animatable.createAnimatableComponent(Title);
 
 export default class TicCurrentGame extends Component {
 
@@ -26,6 +28,7 @@ export default class TicCurrentGame extends Component {
             gameOrder       : this.options.type.order ,
             gameBoard       : [],
             playerTurn      : Math.round(Math.random()),
+            gameStatus      : 0 , // 0 = no started , 1 = started , 2 = end 
             currentPlayer   : {
                 name        : "Player 1",
                 score       : 0 ,
@@ -38,7 +41,7 @@ export default class TicCurrentGame extends Component {
                 status      : TicSolve.gameStatus.INCOMPLETE,
                 winning     : "X",
                 winningLine : []
-            }
+            },
         }
         this.bgColor    = this.options.theme.color;
         this.foreColor  = this.options.theme.back;
@@ -89,12 +92,19 @@ export default class TicCurrentGame extends Component {
 
     _createMove = ( row  , col )=>{
        
-        const {gameBoard , currentPlayer , gameOrder } = this.state;
+        const {
+            gameBoard , 
+            currentPlayer , 
+            gameOrder ,
+             gameStatus 
+        }                   = this.state;
+
+        if (gameStatus !== 1 ) return ;
 
         let board           = Object.assign(gameBoard , {});
         board[row][col]     = currentPlayer.symbol;
         const result        = TicSolve.getResult(gameBoard , currentPlayer.symbol , gameOrder );
-        
+
         this.setState({ gameBoard : board , result });
     }
 
@@ -149,7 +159,6 @@ export default class TicCurrentGame extends Component {
         return rowsBoard;
     }
 
-
     _buildBoard = ()=>{
 
        
@@ -169,8 +178,25 @@ export default class TicCurrentGame extends Component {
         return ( boardRender );
     }
 
+    _actionButton = ()=>{
+        const { gameStatus } = this.state;
+        switch(gameStatus){
+            case 0 : 
+                return <TicTacButton style={{ marginHorizontal : 10 }} title={'START'} action={()=>{ this.setState({ gameStatus : 1 }) }} />
+            case 1 :
+                return <TicTacButton style={{ marginHorizontal : 10 }} title={'STOP'} action={ ()=>{ this.setState({ gameStatus : 2 }) }  } />
+            case 2 : 
+                return <TicTacButton style={{ marginHorizontal : 10 }} title={'RESTART'} action={()=>{ this.setState({ gameStatus : 1 }) } } />
+        }
+
+        return null;
+    }
+
     render = ()=>{
+
         const {navigation } = this.props;
+        const {gameStatus}  = this.state;
+        
         return (
             <Container style={{ 
                 backgroundColor : this.bgColor ,
@@ -178,12 +204,16 @@ export default class TicCurrentGame extends Component {
                  justifyContent : 'center',
                  alignItems : 'center'  
             }}>
-                
-                <Grid style={{ marginHorizontal : 20 , marginTop : 30 }}>
+                <View>
+                    <TicTacTitle color={this.foreColor} />
+                    { gameStatus !== 1 ? <AnimatedTitle animation={'pulse'} iterationCount={'infinite'} style={[styles.title_start_game , { color :'red' }]} >{'START THE GAME PLEASE'}</AnimatedTitle> : null  }
+                </View>
+                <Grid style={styles.board_grid}>
                         {this._buildBoard()}
                 </Grid>
-                <View>
+                <View style={{ flexDirection : 'row' }}>
                     <TicTacButton title={'MENU'} action={ ()=>{ navigation.navigate('Home'); }} />
+                    {this._actionButton()}
                 </View>
             </Container>
         );

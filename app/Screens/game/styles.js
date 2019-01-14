@@ -32,5 +32,13 @@ export default StyleSheet.create({
         fontSize : 50, 
         fontFamily : 'realpolitik' ,
          paddingHorizontal : 20 
-     }
+     },
+     board_grid :{
+          marginHorizontal : 20 ,
+           marginTop : 30 
+    },
+    title_start_game : {
+        fontFamily : 'realpolitik' ,
+        fontSize : 20,
+    }
 });
