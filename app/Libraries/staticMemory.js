@@ -38,7 +38,10 @@ export class StaticMemory  {
                 }
             ]
         },
-        game  : {  
+        game  : {
+            status :{
+                active : true 
+            } ,
             p1 : {
                 
                 /**
