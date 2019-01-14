@@ -16,27 +16,22 @@ import { TicTacButton }             from '../../Components/buttons';
 import { TicSolve }                 from '../../Libraries';
 import { TicTacTitle }              from '../../Components/titles';
 
-const AnimatedRow       =  Animatable.createAnimatableComponent(Row);
-const AnimatedTitle     =  Animatable.createAnimatableComponent(Title);
+const AnimatedRow        =  Animatable.createAnimatableComponent(Row);
+const AnimatedTitle      =  Animatable.createAnimatableComponent(Title);
+
 
 export default class TicCurrentGame extends Component {
 
     constructor(props){
         super(props);
         this.options    = StaticMemory.getCurrentOptions();
+        this.game       = StaticMemory.getCurrentGame();     
         this.state = {
             gameOrder       : this.options.type.order ,
             gameBoard       : [],
-            playerTurn      : Math.round(Math.random()),
-            gameStatus      : 0 , // 0 = no started , 1 = started , 2 = end 
-            currentPlayer   : {
-                name        : "Player 1",
-                score       : 0 ,
-                symbol      : "X",
-                date        : new Date(),
-                status      : 0,
-                moves       : []
-            },
+            playerTurn      : Math.round(Math.random()) === 0 ? 'X' : '0',
+            gameStatus      :  0  , // 0 = no started , 1 = started , 2 = end 
+            game            : this.game.gameData ,
             result          : {
                 status      : TicSolve.gameStatus.INCOMPLETE,
                 winning     : "X",
@@ -94,18 +89,20 @@ export default class TicCurrentGame extends Component {
        
         const {
             gameBoard , 
-            currentPlayer , 
             gameOrder ,
-             gameStatus 
+            gameStatus ,
+            playerTurn
         }                   = this.state;
 
         if (gameStatus !== 1 ) return ;
 
         let board           = Object.assign(gameBoard , {});
-        board[row][col]     = currentPlayer.symbol;
-        const result        = TicSolve.getResult(gameBoard , currentPlayer.symbol , gameOrder );
+        board[row][col]     = playerTurn;
+        const result        = TicSolve.getResult(gameBoard , playerTurn , gameOrder );
 
-        this.setState({ gameBoard : board , result });
+       // player.moves.push({ player : currentPlayer , move : [row , col ] , result : result })
+
+        this.setState({ gameBoard : board , result  });
     }
 
     _buildRowInBoard = (rows , col , heightCol ) =>{
@@ -136,13 +133,13 @@ export default class TicCurrentGame extends Component {
 
             return (
                 <AnimatedRow
-                     animation={animated}
-                     delay={20}
-                     duration={1000}
+                     animation={ bordered ? 'rubberBand' : animated}
+                     duration={ bordered ? 3000 : 0 }
+                     iterationCount={ bordered ? 'infinite' : 1 }
                      key={String("col[" + col + "]" + "[" + index +"]")} 
                      style={[{ backgroundColor : this.bgColor , height : heightRow , borderColor : this.foreColor} , stylesRow]} 
                 >
-                    <Button 
+                    <Button
                         onPress={() => this._createMove(col , index) }
                         block
                         transparent
@@ -195,8 +192,10 @@ export default class TicCurrentGame extends Component {
     render = ()=>{
 
         const {navigation } = this.props;
-        const {gameStatus}  = this.state;
-        
+        const {gameStatus , game }  = this.state;
+
+        console.log(this.state);
+
         return (
             <Container style={{ 
                 backgroundColor : this.bgColor ,

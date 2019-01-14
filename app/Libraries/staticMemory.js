@@ -40,31 +40,26 @@ export class StaticMemory  {
         },
         game  : {
             status :{
-                active : true 
+                active : true ,
+                board  : [],
+                winner : {
+                    symbol : "",
+                    tie    : false 
+                }
             } ,
             p1 : {
-                
-                /**
-                 * status refers to who won 
-                 * 0 = draw,
-                 * 1 = win , 
-                 * 2 = lose
-                 */
-
                 name        : "Player 1",
                 score       : 0 ,
                 symbol      : "X",
                 date        : new Date(),
-                status      : 0,
-                moves       : []
+                moves       : [],
             },
             p2 : {
                 name        : "Player 2",
                 score       : 0 ,
                 symbol      : "0",
                 date        : new Date(),
-                status      : 0,
-                moves       : []
+                moves       : [],
             }
         }
     }
@@ -94,6 +89,15 @@ export class StaticMemory  {
 
     static setCurrentGameType = (type) =>{
         StaticMemory.currentOptions.type=  type ;
+    }
+
+    static setCurrentGame = (game)=>{
+        StaticMemory.currentGame.existGame  = true;
+        StaticMemory.currentGame.gameData   = game;
+    }
+
+    static getCurrentGame = ()=>{
+        return StaticMemory.currentGame ;
     }
 
     static getCurrentOptions = () =>{ return StaticMemory.currentOptions; }

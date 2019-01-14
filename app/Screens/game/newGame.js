@@ -7,6 +7,7 @@ import { _IMAGES_ }             from '../../Config';
 import { TicTacTitle }          from '../../Components/titles';
 import Player                   from '../../Components/player';
 import { StaticMemory }         from '../../Libraries/staticMemory';
+import TicTacStorage from '../../Libraries/storage';
 
 export default class TicNewGame extends Component {
 
@@ -20,6 +21,7 @@ export default class TicNewGame extends Component {
             playerTwoSelected   : null ,
         }
         this.dataGame       = StaticMemory.defaultGameOptions.game;
+        this.storage        = new TicTacStorage();
     }
 
     _callback = ( numberState  , name , symbol   )=>{
@@ -38,7 +40,8 @@ export default class TicNewGame extends Component {
                 this.dataGame.p2.name       = name;
                 this.dataGame.p2.symbol     = symbol;
                 const {navigation}          = this.props;
-                navigation.navigate("CurrentGameScreen" , { game : this.dataGame });
+                this.storage.setCurrentGame(this.dataGame)
+                navigation.navigate("CurrentGameScreen" );
                 break;
         }
     }

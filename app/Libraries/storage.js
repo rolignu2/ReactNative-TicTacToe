@@ -39,8 +39,9 @@ export default class TicTacStorage  {
 
                  if (values[1].length !== 0){ // for exists current game 
                      StaticMemory.currentGame.existGame = true ;
+                     StaticMemory.currentGame.gameData  = values[1];
                  }else {
-
+                    StaticMemory.currentGame.existGame = false  ;
                  }
              }
              callback(true)
@@ -73,6 +74,7 @@ export default class TicTacStorage  {
     }
 
     setCurrentGame = ( game )=>{
+        StaticMemory.setCurrentGame(game);
         global.storage.save({
             key         : this.storageKeys.game,
             id          : 'GA001',
