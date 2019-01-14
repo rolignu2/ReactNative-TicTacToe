@@ -15,6 +15,7 @@ import * as Animatable              from 'react-native-animatable';
 import { TicTacButton }             from '../../Components/buttons';
 import { TicSolve }                 from '../../Libraries';
 import { TicTacTitle }              from '../../Components/titles';
+import PlayerScore from '../../Components/player/score';
 
 const AnimatedRow        =  Animatable.createAnimatableComponent(Row);
 const AnimatedTitle      =  Animatable.createAnimatableComponent(Title);
@@ -107,7 +108,7 @@ export default class TicCurrentGame extends Component {
 
     _buildRowInBoard = (rows , col , heightCol ) =>{
         const { gameOrder , result}      = this.state;
-        const heightRow                 = (heightCol / gameOrder);
+        const heightRow                 = ( heightCol / gameOrder);
         let rowsBoard                   = rows.map( (data , index)=>{
 
             let stylesRow    = {};
@@ -189,10 +190,23 @@ export default class TicCurrentGame extends Component {
         return null;
     }
 
+    _boardTitleStatus = ()=>{
+
+        const {gameStatus } = this.state;
+        let title = ""
+
+        if (gameStatus == 0) {
+           title = 'START THE GAME PLEASE';
+        }
+
+        return  <AnimatedTitle animation={'pulse'} iterationCount={'infinite'} style={[styles.title_start_game , { color :'red' }]} >{title}</AnimatedTitle> 
+    
+    }
+
     render = ()=>{
 
-        const {navigation } = this.props;
-        const {gameStatus , game }  = this.state;
+        const {navigation }     = this.props;
+        const { game }          = this.state;
 
         console.log(this.state);
 
@@ -204,8 +218,16 @@ export default class TicCurrentGame extends Component {
                  alignItems : 'center'  
             }}>
                 <View>
-                    <TicTacTitle color={this.foreColor} />
-                    { gameStatus !== 1 ? <AnimatedTitle animation={'pulse'} iterationCount={'infinite'} style={[styles.title_start_game , { color :'red' }]} >{'START THE GAME PLEASE'}</AnimatedTitle> : null  }
+                    <View style={{ alignItems : 'center'}} >
+                         <TicTacTitle color={this.foreColor} />
+                    </View>
+                    <View style={{ marginBottom : 20 }}>
+                         {this._boardTitleStatus()}
+                    </View>
+                    <View style={{flexDirection : 'row'}}>
+                        <PlayerScore data={ game !== null ? game.p1 : null }  />
+                        <PlayerScore data={ game !== null ? game.p2 : null} direction={'row'} />
+                    </View>
                 </View>
                 <Grid style={styles.board_grid}>
                         {this._buildBoard()}

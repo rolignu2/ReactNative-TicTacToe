@@ -39,7 +39,7 @@ export default class TicTacStorage  {
 
                  if (values[1].length !== 0){ // for exists current game 
                      StaticMemory.currentGame.existGame = true ;
-                     StaticMemory.currentGame.gameData  = values[1];
+                     StaticMemory.currentGame.gameData  = values[1][0];
                  }else {
                     StaticMemory.currentGame.existGame = false  ;
                  }

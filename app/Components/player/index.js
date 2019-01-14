@@ -36,6 +36,7 @@ export default class Player extends Component{
         return (
             <Item style={{backgroundColor : 'white' }} rounded  >
                 <Input 
+                    maxLength={10}
                     style={{ textAlign : 'center' , opacity : .8}} 
                     placeholder={'Type your name please '}
                     value={this.state.name}
