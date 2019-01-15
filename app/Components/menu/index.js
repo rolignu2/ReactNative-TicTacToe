@@ -15,19 +15,24 @@ import { StaticMemory }             from '../../Libraries/staticMemory';
 export default class TicTacMenu extends Component {
 
     constructor(props){
+
         super(props);
+        this.game = StaticMemory.getCurrentGame();
         this.state = {
-            modalVisible : false 
+            modalVisible : false ,
+            existGame    : this.game.existGame !== undefined ? this.game.existGame : false 
         };
 
         BackHandler.addEventListener('hardwareBackPress', this._callExit);
-        this.game = StaticMemory.getCurrentGame();
+        
     }
 
     _beforeNewGame = ()=>{
 
-        const {navigation} = this.props;
-        if (this.game.existGame){
+        const {navigation}  = this.props;
+        const {existGame}   = this.state;
+
+        if (existGame){
             Alert.alert('Start a new game ', 'Do you want to delete the current game?',
             [
                   {text: 'No', onPress: ()  =>  Toast.show({ text : "Continue Game" , buttonText : 'Yeah' }), style: 'cancel'},
@@ -56,7 +61,10 @@ export default class TicTacMenu extends Component {
 
     _currentGameButton = ()=>{
         const {navigation} = this.props;
-        if (!this.game.existGame) return null;
+        const {existGame}   = this.state;
+
+        if (!existGame) return null;
+
         return (
             <Animatable.View animation={'slideInRight'} duration={500} delay={100} >
                 <TicTacButton
@@ -127,9 +135,20 @@ export default class TicTacMenu extends Component {
     }
 
 
+    componentDidMount = ()=>{
+        const {existGame} = this.state;
+        if (!existGame)
+            this.ID = setInterval(() => {
+                if (existGame !== this.game.existGame){
+                    this.setState({ existGame : this.game.existGame });
+                    clearInterval(this.ID);
+                }
+            }, 1000 );
+    }
 
     componentWillUnmount = ()=>{
         BackHandler.removeEventListener('hardwareBackPress',  this._callExit);
+        try{ clearInterval(this.ID) }catch(e){}
     }
 
     render = ()=>{

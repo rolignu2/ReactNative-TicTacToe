@@ -1,6 +1,6 @@
 import Storage                  from 'react-native-storage';
 import { AsyncStorage }         from 'react-native';
-import { StaticMemory } from './staticMemory';
+import { StaticMemory }         from './staticMemory';
 
 export default class TicTacStorage  {
 

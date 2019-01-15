@@ -25,14 +25,15 @@ export default class TicCurrentGame extends Component {
 
     constructor(props){
         super(props);
-        this.options    = StaticMemory.getCurrentOptions();
-        this.game       = StaticMemory.getCurrentGame();     
+        this.options        = StaticMemory.getCurrentOptions();
+        this.game           = StaticMemory.getCurrentGame();     
         this.state = {
             gameOrder       : this.options.type.order ,
             gameBoard       : [],
             playerTurn      : Math.round(Math.random()) === 0 ? 'X' : '0',
-            gameStatus      :  0  , // 0 = no started , 1 = started , 2 = end 
-            game            : this.game.gameData ,
+            playerName      : "",
+            gameStatus      :  0  , // 0 = no started , 1 = started , 2 = end winner  , 3 = tie end 
+            game            : this.game.gameData,
             result          : {
                 status      : TicSolve.gameStatus.INCOMPLETE,
                 winning     : "X",
@@ -43,24 +44,61 @@ export default class TicCurrentGame extends Component {
         this.foreColor  = this.options.theme.back;
     }
 
-    _init  = ()=>{
-
-        let {gameOrder } = this.state;
-        let  gameBoard   = [];
-
-        if ( typeof gameOrder !== 'number')
-            gameOrder = 3 ;
-        
-        for (let i = 0 ; i < gameOrder ; i++ )
-                gameBoard.push(new Array(gameOrder).fill(""));
-        
-
-        this.setState({ gameBoard , gameOrder  });
-
+    _onPlayerTurn = ( turn = null  ) =>{
+         const {playerTurn , game } = this.state;
+         if (turn === null ) turn = playerTurn;
+         if (game === null) return { turn ,  name : "" };
+         if (game.p1.symbol === turn) return { turn , name : game.p1.name };
+         if (game.p2.symbol === turn) return { turn , name : game.p2.name };
+         return {  turn ,  name : "" };
     }
 
-    componentDidMount = ()=>{
-        this._init();
+    _init  = ( newGame = false , status = 0 )=>{
+
+        let {gameOrder , game , playerTurn , playerName } = this.state;
+        let  gameBoard   = [];
+        let turn         = playerTurn;
+        let name         = playerName;
+        let result       = {
+            status          : TicSolve.gameStatus.INCOMPLETE,
+            winning         : "X",
+            winningLine     : []
+        }
+
+        if (game !== null && !newGame ){
+            const { board }  = game.status;
+            const player     = this._onPlayerTurn();
+            name            = player.name;
+            if (board instanceof Array){
+                gameBoard = board;
+            }
+        }
+
+        if (gameBoard.length === 0 ){
+            if ( typeof gameOrder !== 'number')
+                gameOrder = 3 ;
+        
+            for (let i = 0 ; i < gameOrder ; i++ )
+                gameBoard.push(new Array(gameOrder).fill(""));
+        }
+
+        
+        if (newGame){
+             const playerResult  = this._onPlayerTurn();
+             turn       = playerResult.turn ;
+             name       = playerResult.name;
+        }
+
+
+        this.setState({ 
+            gameBoard , 
+            gameOrder , 
+            gameStatus : status ,
+            playerTurn : turn ,
+            playerName : name,
+            result
+         });
+
     }
 
     _drawLines = ( colIndex , rowIndex  )=>{
@@ -92,28 +130,60 @@ export default class TicCurrentGame extends Component {
             gameBoard , 
             gameOrder ,
             gameStatus ,
-            playerTurn
+            playerTurn,
+            game
         }                   = this.state;
 
         if (gameStatus !== 1 ) return ;
 
-        let board           = Object.assign(gameBoard , {});
+        let gameData        = game;
+        let board           = gameBoard;
+        let gStatus         = gameStatus;
         board[row][col]     = playerTurn;
         const result        = TicSolve.getResult(gameBoard , playerTurn , gameOrder );
+        let nextTurn        = this._onPlayerTurn( playerTurn === 'X' ? '0' : 'X' );
+        let keyPlayer       = "p1";
 
-       // player.moves.push({ player : currentPlayer , move : [row , col ] , result : result })
+        for (let i in gameData){
+            if (i !== "status" && gameData[i].symbol === playerTurn){
+                keyPlayer = i;
+                break;
+            } 
+        }
 
-        this.setState({ gameBoard : board , result  });
+        gameData[keyPlayer].moves.push({  move : [row , col ] , result : result , date : new Date() });
+      
+        switch(result.status){
+            case TicSolve.gameStatus.WINNER:
+                    gStatus     = 2 ;
+                    nextTurn    = this._onPlayerTurn( playerTurn );
+                    gameData[keyPlayer].score +=1
+                    break
+            case TicSolve.gameStatus.TIE :
+                    gStatus = 3;
+                    break;
+        }
+        
+        this.setState({ 
+            gameBoard : board , 
+            result ,
+            playerTurn : nextTurn.turn , 
+            playerName : nextTurn.name ,
+            gameStatus : gStatus,
+            game       : gameData
+        });
     }
 
     _buildRowInBoard = (rows , col , heightCol ) =>{
-        const { gameOrder , result}      = this.state;
-        const heightRow                 = ( heightCol / gameOrder);
-        let rowsBoard                   = rows.map( (data , index)=>{
+        const { gameOrder , result , gameBoard}     = this.state;
+        const heightRow                             = ( heightCol / gameOrder);
+        let rowsBoard                               = rows.map( (data , index)=>{
 
             let stylesRow    = {};
             let animated     = 'fadeInRight'
             let bordered     = false ;
+            let disabled     = result.status === TicSolve.gameStatus.INCOMPLETE ? false : true
+
             if (gameOrder == 3) stylesRow = this._drawLines(col , index);
 
             switch(index){
@@ -132,6 +202,12 @@ export default class TicCurrentGame extends Component {
                 } 
             }
 
+            if (!disabled){
+                if (gameBoard[col][index] !== "")
+                    disabled = true;
+            }
+
+
             return (
                 <AnimatedRow
                      animation={ bordered ? 'rubberBand' : animated}
@@ -145,7 +221,7 @@ export default class TicCurrentGame extends Component {
                         block
                         transparent
                         bordered={bordered}
-                        disabled={result.status === TicSolve.gameStatus.INCOMPLETE ? false : true }
+                        disabled={disabled}
                         style={{  height : 90 , flex : 1 , marginHorizontal : 5 ,  borderColor : 'red' }} 
                     >
                         <Text style={[{ color : this.foreColor } , styles.button_symbol]} >{data}</Text>
@@ -178,38 +254,52 @@ export default class TicCurrentGame extends Component {
 
     _actionButton = ()=>{
         const { gameStatus } = this.state;
+
         switch(gameStatus){
             case 0 : 
                 return <TicTacButton style={{ marginHorizontal : 10 }} title={'START'} action={()=>{ this.setState({ gameStatus : 1 }) }} />
             case 1 :
                 return <TicTacButton style={{ marginHorizontal : 10 }} title={'STOP'} action={ ()=>{ this.setState({ gameStatus : 2 }) }  } />
             case 2 : 
-                return <TicTacButton style={{ marginHorizontal : 10 }} title={'RESTART'} action={()=>{ this.setState({ gameStatus : 1 }) } } />
+            case 3 :
+                return <TicTacButton style={{ marginHorizontal : 10 }} title={'AGAIN'} action={()=>{ this._init(true , 1 ); } } />
         }
 
         return null;
     }
 
-    _boardTitleStatus = ()=>{
+    _boardTitleStatus = ( )=>{
 
-        const {gameStatus } = this.state;
-        let title = ""
+        const {gameStatus , playerName , result } = this.state;
+        let title = "";
 
-        if (gameStatus == 0) {
-           title = 'START THE GAME PLEASE';
+        switch(gameStatus){
+            case 0 :
+                title = 'START THE GAME PLEASE';
+                break;
+            case 2 : 
+                title = playerName  + ' IS THE WINNER';
+                break;
+            case 3 :
+                title  = " IT'S A TIE "
+                break;
+            default : 
+                title = playerName + " IT'S YOUR TURN " ;
+                break;
         }
 
         return  <AnimatedTitle animation={'pulse'} iterationCount={'infinite'} style={[styles.title_start_game , { color :'red' }]} >{title}</AnimatedTitle> 
     
     }
 
+    componentDidMount = ()=>{
+        this._init();
+    }
+
     render = ()=>{
 
         const {navigation }     = this.props;
         const { game }          = this.state;
-
-        console.log(this.state);
-
         return (
             <Container style={{ 
                 backgroundColor : this.bgColor ,
@@ -218,15 +308,15 @@ export default class TicCurrentGame extends Component {
                  alignItems : 'center'  
             }}>
                 <View>
-                    <View style={{ alignItems : 'center'}} >
+                    <View style={{ alignItems : 'center' , marginTop : 10 }} >
                          <TicTacTitle color={this.foreColor} />
                     </View>
                     <View style={{ marginBottom : 20 }}>
                          {this._boardTitleStatus()}
                     </View>
                     <View style={{flexDirection : 'row'}}>
-                        <PlayerScore data={ game !== null ? game.p1 : null }  />
-                        <PlayerScore data={ game !== null ? game.p2 : null} direction={'row'} />
+                        <PlayerScore color={this.foreColor} data={ game !== null ? game.p1 : null }  />
+                        <PlayerScore color={this.foreColor} data={ game !== null ? game.p2 : null} direction={'row'} />
                     </View>
                 </View>
                 <Grid style={styles.board_grid}>

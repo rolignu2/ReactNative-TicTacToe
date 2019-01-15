@@ -63,7 +63,7 @@ export class TicSolve {
 
         if (TicSolve._countMoves(board) === Math.pow(order , 2)){
             result.status           = TicSolve.gameStatus.TIE;
-            result.winningLine      = [[0,2], [1,1], [2,0]];
+            result.winningLine      = [];
             return result;
         }
 

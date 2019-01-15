@@ -17,7 +17,7 @@ export class StaticMemory  {
             types  : [
                 {
                     name        : 'DayTime',
-                    color       : 'white',
+                    color       : '#f5f2ed',
                     back        : 'black',
                     opacity     : .9,
                     default     : true 
@@ -40,7 +40,6 @@ export class StaticMemory  {
         },
         game  : {
             status :{
-                active : true ,
                 board  : [],
                 winner : {
                     symbol : "",

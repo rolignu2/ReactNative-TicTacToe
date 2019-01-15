@@ -23,16 +23,14 @@ export default class PlayerScore extends Component {
 
 
     render = ()=>{
-        
         const {data , direction , color } = this.state;
-        console.log("player state " , this.state);
         if (data == null ) return null;
         return (
             <View style={{ flexDirection : direction }} >
                 <View style={{ marginHorizontal : 20}}>
-                    <Text style={[styles.player_txt_name_score ,{ color : color } ]}>{'Name : Rolando'}</Text>
-                    <Text style={[styles.player_txt_score ,{ color : color } ]} >{'Score : 0' }</Text>
-                    <Text style={[styles.player_txt_score ,{ color : color } ]} >{'Symbol : X' }</Text>
+                    <Text style={[styles.player_txt_name_score ,{ color : color } ]}>{"Name: " + data.name }</Text>
+                    <Text style={[styles.player_txt_score ,{ color : color } ]} >{"Score: " + data.score }</Text>
+                    <Text style={[styles.player_txt_score ,{ color : color } ]} >{'Symbol: "' + data.symbol + '"' }</Text>
                 </View>
             </View>
         )
