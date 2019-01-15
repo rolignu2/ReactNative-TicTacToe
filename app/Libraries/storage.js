@@ -91,7 +91,6 @@ export default class TicTacStorage  {
         });
     }
 
-
     getHistoryData = ( callback = () =>{} )=>{
         storage.getAllDataForKey(this.storageKeys.gameHistory).then( values =>{
             if ( values instanceof Array )
@@ -104,6 +103,10 @@ export default class TicTacStorage  {
         });
     }
 
+    cleanHistoryData = ()=>{
+        try{storage.clearMapForKey(this.storageKeys.gameHistory);}
+        catch(e){}
+    }
 
     setPlayerNames = (name)=>{
         name = String(name).toUpperCase();
@@ -113,6 +116,7 @@ export default class TicTacStorage  {
             data        : name
         });
     }
+
 
     getAllNames = ( callback = ()=>{} ) =>{
         storage.getAllDataForKey(this.storageKeys.names).then( values =>{

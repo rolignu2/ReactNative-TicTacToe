@@ -70,9 +70,20 @@ export default class TicCurrentGame extends Component {
         if (game !== null && !newGame ){
             const { board }  = game.status;
             const player     = this._onPlayerTurn();
-            name            = player.name;
+            name             = player.name;
+           
             if (board instanceof Array){
-                gameBoard = board;
+                let   fgame     = 0;
+                gameBoard       = board;
+
+                for (let i in gameBoard){
+                    const g = gameBoard[i];
+                    if ( g.every( ( c)=>{  return c === 'X' || c === '0';  })){
+                        fgame++;
+                    }
+                }
+                if (gameBoard.length === fgame)
+                    gameBoard = [];
             }
         }
 
@@ -317,9 +328,6 @@ export default class TicCurrentGame extends Component {
 
         const {navigation }     = this.props;
         const { game }          = this.state;
-
-        console.log("GAME STATES ->" , this.state );
-        console.log("MEMORY MOVES -> " , this.game.gameData);
 
         return (
             <Container style={{ 

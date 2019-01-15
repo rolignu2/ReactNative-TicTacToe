@@ -38,7 +38,6 @@ export default class TicHistory extends PureComponent {
     _keyExtractor = (item) => item.status.winner.date;
 
     _renderItem = ( {item} ) =>{
-         console.log(item);
          return  <HistoryItem item={item} />;
     }
 

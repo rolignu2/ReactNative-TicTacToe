@@ -2,7 +2,7 @@
 import React , {Component}              from 'react';
 import {View}                           from 'react-native';
 import {
-    Text, Form, Picker, Button 
+    Text, Form, Picker, Button, Toast 
 }                                       from 'native-base';
 import TicModal                         from '../commons/TicModal';
 import styles                           from './styles'
@@ -92,11 +92,23 @@ export default class GameOptions extends Component {
                                 {this._loadGameTheme()}
                           </Picker>
 
-                          <Button onPress={this.state.callback} style={{ marginVertical : 100 }} rounded bordered >
-                                <Text>
-                                    {' Close Options '}
-                                </Text>
-                          </Button>
+                          <View style={{ alignItems : 'center' }}>
+                                <Button onPress={ ()=>{ 
+                                    this.storage.cleanHistoryData();
+                                    Toast.show({ text : " History cleaned " , buttonText : "Ok" })
+                                 } } style={{ marginTop : 50 , marginBottom : 50 }} rounded danger >
+                                        <Text>
+                                            {' Clear History data '}
+                                        </Text>
+                                </Button>
+                                <Button onPress={this.state.callback}  rounded bordered >
+                                    <Text>
+                                        {' Close Options '}
+                                    </Text>
+                                </Button>
+                          </View>
+
+                          
                      </Form>
                 </View>
               
