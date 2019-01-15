@@ -154,12 +154,13 @@ export default class TicCurrentGame extends Component {
         }
 
         this.game.gameData.status.board = board;
+        this.game.gameData.status.winner.date = new Date();
+
         switch(result.status){
             case TicSolve.gameStatus.WINNER:
                     gStatus     = 2 ;
                     nextTurn    = this._onPlayerTurn( playerTurn );
                     gameData[keyPlayer].score +=1
-                    this.game.gameData[keyPlayer].score +=1;
                     this.game.gameData.status.winner.symbol = playerTurn;
                     this._saveData(true);
                     break

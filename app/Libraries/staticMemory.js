@@ -43,7 +43,8 @@ export class StaticMemory  {
                 board  : [],
                 winner : {
                     symbol : "",
-                    tie    : false 
+                    tie    : false ,
+                    date   : new Date()
                 }
             } ,
             p1 : {
