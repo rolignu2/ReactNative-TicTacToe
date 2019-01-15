@@ -42,5 +42,17 @@ export default StyleSheet.create({
          alignItems : 'center' , 
          justifyContent : 'center' , 
          marginBottom : 30
+    },
+    player_txt_name_score: {
+        fontSize : 15 , 
+        //textAlign : 'center' ,
+        fontWeight : 'bold',
+        fontFamily : 'realpolitik',
+    },
+    player_txt_score: {
+        fontSize : 15 , 
+        //textAlign : 'center' ,
+        fontWeight : 'normal',
+        fontFamily : 'realpolitik',
     }
 });

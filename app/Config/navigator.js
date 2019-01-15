@@ -40,7 +40,7 @@ const AppStackNavigator = createStackNavigator(
         lazy: true,
         transitionConfig: () => ({
           transitionSpec: {
-              duration: 500,
+              duration: 400,
               easing: Easing.bezier(0.2833, 0.99, 0.31833, 0.99),
               timing: Animated.timing,
           },

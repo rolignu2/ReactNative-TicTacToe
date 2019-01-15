@@ -7,33 +7,53 @@ import {
 import  styles                      from './styles';
 import { TicTacButton }             from '../buttons';
 import * as Animatable              from 'react-native-animatable';
-import { Toast, Text }                    from 'native-base';
-import TicModal from '../commons/TicModal';
-import TicTacStorage from '../../Libraries/storage';
-import GameOptions from './gameOptions';
+import { Toast, Text }              from 'native-base';
+import GameOptions                  from './gameOptions';
+import { StaticMemory }             from '../../Libraries/staticMemory';
 
 
 export default class TicTacMenu extends Component {
 
     constructor(props){
+
         super(props);
+        this.game = StaticMemory.getCurrentGame();
         this.state = {
-            modalVisible : false 
+            modalVisible : false ,
+            existGame    : this.game.existGame !== undefined ? this.game.existGame : false 
         };
 
         BackHandler.addEventListener('hardwareBackPress', this._callExit);
+        
+    }
+
+    _beforeNewGame = ()=>{
+
+        const {navigation}  = this.props;
+        const {existGame}   = this.state;
+
+        if (existGame){
+            Alert.alert('Start a new game ', 'Do you want to delete the current game?',
+            [
+                  {text: 'No', onPress: ()  =>  Toast.show({ text : "Continue Game" , buttonText : 'Yeah' }), style: 'cancel'},
+                  {text: 'Yes', onPress: () => navigation.navigate('NewGameScreen') },
+            ],
+            { cancelable: false });
+        }else{
+            navigation.navigate('NewGameScreen') 
+        }
+       
     }
 
 
     _new2PlayerGameButton = ()=>{
-        const {navigation} = this.props;
         return (
             <Animatable.View animation={'slideInRight'} duration={500} delay={100} >
                 <TicTacButton
                     disabled={false}
                     title={' TWO PLAYER GAME '} 
                     style={{ opacity : .8 , backgroundColor : 'white' }} 
-                    action={ () => navigation.navigate('NewGameScreen') }
+                    action={this._beforeNewGame}
                 />
             </Animatable.View>
         );
@@ -41,6 +61,10 @@ export default class TicTacMenu extends Component {
 
     _currentGameButton = ()=>{
         const {navigation} = this.props;
+        const {existGame}   = this.state;
+
+        if (!existGame) return null;
+
         return (
             <Animatable.View animation={'slideInRight'} duration={500} delay={100} >
                 <TicTacButton
@@ -111,9 +135,20 @@ export default class TicTacMenu extends Component {
     }
 
 
+    componentDidMount = ()=>{
+        const {existGame} = this.state;
+        if (!existGame)
+            this.ID = setInterval(() => {
+                if (existGame !== this.game.existGame){
+                    this.setState({ existGame : this.game.existGame });
+                    clearInterval(this.ID);
+                }
+            }, 1000 );
+    }
 
     componentWillUnmount = ()=>{
         BackHandler.removeEventListener('hardwareBackPress',  this._callExit);
+        try{ clearInterval(this.ID) }catch(e){}
     }
 
     render = ()=>{

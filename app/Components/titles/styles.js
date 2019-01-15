@@ -7,13 +7,12 @@ export default StyleSheet.create({
     },
     title_view :{
         // marginTop    : '25%',
-        marginTop : 50 ,
-        marginBottom : 50,
+        marginTop : 25 ,
+        marginBottom : 25,
         flexDirection : 'row'
     },
     title_text : {
         fontFamily : Platform.OS == 'ios' ? 'TheHistoriaDemo' : 'tictac',
-        color : 'white',
         fontSize : 60
     }
 });

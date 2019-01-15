@@ -17,7 +17,7 @@ export class StaticMemory  {
             types  : [
                 {
                     name        : 'DayTime',
-                    color       : 'white',
+                    color       : '#f5f2ed',
                     back        : 'black',
                     opacity     : .9,
                     default     : true 
@@ -38,30 +38,25 @@ export class StaticMemory  {
                 }
             ]
         },
-        game  : {  
+        game  : {
+            status :{
+                board  : [],
+                winner : {
+                    symbol : "",
+                    tie    : false 
+                }
+            } ,
             p1 : {
-                
-                /**
-                 * status refers to who won 
-                 * 0 = draw,
-                 * 1 = win , 
-                 * 2 = lose
-                 */
-
                 name        : "Player 1",
                 score       : 0 ,
                 symbol      : "X",
                 date        : new Date(),
-                status      : 0,
-                moves       : []
             },
             p2 : {
                 name        : "Player 2",
                 score       : 0 ,
                 symbol      : "0",
                 date        : new Date(),
-                status      : 0,
-                moves       : []
             }
         }
     }
@@ -91,6 +86,15 @@ export class StaticMemory  {
 
     static setCurrentGameType = (type) =>{
         StaticMemory.currentOptions.type=  type ;
+    }
+
+    static setCurrentGame = (game)=>{
+        StaticMemory.currentGame.existGame  = true;
+        StaticMemory.currentGame.gameData   = game;
+    }
+
+    static getCurrentGame = ()=>{
+        return StaticMemory.currentGame ;
     }
 
     static getCurrentOptions = () =>{ return StaticMemory.currentOptions; }
