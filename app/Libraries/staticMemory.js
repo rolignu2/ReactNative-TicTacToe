@@ -51,14 +51,12 @@ export class StaticMemory  {
                 score       : 0 ,
                 symbol      : "X",
                 date        : new Date(),
-                moves       : [],
             },
             p2 : {
                 name        : "Player 2",
                 score       : 0 ,
                 symbol      : "0",
                 date        : new Date(),
-                moves       : [],
             }
         }
     }

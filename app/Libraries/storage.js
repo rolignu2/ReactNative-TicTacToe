@@ -2,6 +2,7 @@ import Storage                  from 'react-native-storage';
 import { AsyncStorage }         from 'react-native';
 import { StaticMemory }         from './staticMemory';
 
+
 export default class TicTacStorage  {
 
     static getInstance = ()=>{
@@ -81,6 +82,28 @@ export default class TicTacStorage  {
             data        : game 
         });
     }
+
+    setHistoryData = ( game ) =>{
+        global.storage.save({
+            key         : this.storageKeys.gameHistory,
+            id          : Math.random(),
+            data        : game ,
+        });
+    }
+
+
+    getHistoryData = ( callback = () =>{} )=>{
+        storage.getAllDataForKey(this.storageKeys.gameHistory).then( values =>{
+            if ( values instanceof Array )
+              if (values.length !== 0) {
+                  callback( { status : true , value : values } )
+                  return;
+              }
+          
+            callback({ status : false , value : [] })
+        });
+    }
+
 
     setPlayerNames = (name)=>{
         name = String(name).toUpperCase();

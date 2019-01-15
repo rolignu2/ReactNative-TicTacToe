@@ -58,8 +58,8 @@ export default class TicNewGame extends Component {
             <Container style={styles.container}>
                  <ImageBackground style={styles.bg} source={_IMAGES_.background} >
                      <TicTacTitle />
-                     <Player selected={playerOneSelected} oldNames={oldNames} visible={playerOneVisible} numberState={1} title={'Player 1'} callback={this._callback} />
-                     <Player selected={playerTwoSelected} oldNames={oldNames} visible={playerTwoVisible} numberState={2}  title={'Player 2'} callback={this._callback} />
+                     <Player selected={playerOneSelected} oldNames={oldNames} visible={playerOneVisible} numberState={1} title={'Player One'} callback={this._callback} />
+                     <Player selected={playerTwoSelected} oldNames={oldNames} visible={playerTwoVisible} numberState={2}  title={'Player Two'} callback={this._callback} />
                  </ImageBackground>
             </Container>
         );

@@ -15,7 +15,8 @@ import * as Animatable              from 'react-native-animatable';
 import { TicTacButton }             from '../../Components/buttons';
 import { TicSolve }                 from '../../Libraries';
 import { TicTacTitle }              from '../../Components/titles';
-import PlayerScore from '../../Components/player/score';
+import PlayerScore                  from '../../Components/player/score';
+import TicTacStorage                from '../../Libraries/storage';
 
 const AnimatedRow        =  Animatable.createAnimatableComponent(Row);
 const AnimatedTitle      =  Animatable.createAnimatableComponent(Title);
@@ -26,7 +27,8 @@ export default class TicCurrentGame extends Component {
     constructor(props){
         super(props);
         this.options        = StaticMemory.getCurrentOptions();
-        this.game           = StaticMemory.getCurrentGame();     
+        this.game           = StaticMemory.getCurrentGame();
+        this.storage        = new TicTacStorage();     
         this.state = {
             gameOrder       : this.options.type.order ,
             gameBoard       : [],
@@ -151,16 +153,23 @@ export default class TicCurrentGame extends Component {
             } 
         }
 
-        gameData[keyPlayer].moves.push({  move : [row , col ] , result : result , date : new Date() });
-      
+        this.game.gameData.status.board = board;
         switch(result.status){
             case TicSolve.gameStatus.WINNER:
                     gStatus     = 2 ;
                     nextTurn    = this._onPlayerTurn( playerTurn );
                     gameData[keyPlayer].score +=1
+                    this.game.gameData[keyPlayer].score +=1;
+                    this.game.gameData.status.winner.symbol = playerTurn;
+                    this._saveData(true);
                     break
             case TicSolve.gameStatus.TIE :
                     gStatus = 3;
+                    this.game.gameData.status.winner.tie = true;
+                    this._saveData(true);
+                    break;
+            default :
+                    this._saveData();
                     break;
         }
         
@@ -172,6 +181,13 @@ export default class TicCurrentGame extends Component {
             gameStatus : gStatus,
             game       : gameData
         });
+    }
+
+    _saveData = (his = false )=> {
+        this.storage.setCurrentGame(this.game.gameData);
+        if (his) {
+            this.storage.setHistoryData(this.game.gameData);
+        }
     }
 
     _buildRowInBoard = (rows , col , heightCol ) =>{
@@ -259,7 +275,7 @@ export default class TicCurrentGame extends Component {
             case 0 : 
                 return <TicTacButton style={{ marginHorizontal : 10 }} title={'START'} action={()=>{ this.setState({ gameStatus : 1 }) }} />
             case 1 :
-                return <TicTacButton style={{ marginHorizontal : 10 }} title={'STOP'} action={ ()=>{ this.setState({ gameStatus : 2 }) }  } />
+                return <TicTacButton style={{ marginHorizontal : 10 }} title={'RESTART'} action={ ()=>{  this._init(true , 0 );  }  } />
             case 2 : 
             case 3 :
                 return <TicTacButton style={{ marginHorizontal : 10 }} title={'AGAIN'} action={()=>{ this._init(true , 1 ); } } />
@@ -300,6 +316,10 @@ export default class TicCurrentGame extends Component {
 
         const {navigation }     = this.props;
         const { game }          = this.state;
+
+        console.log("GAME STATES ->" , this.state );
+        console.log("MEMORY MOVES -> " , this.game.gameData);
+
         return (
             <Container style={{ 
                 backgroundColor : this.bgColor ,
