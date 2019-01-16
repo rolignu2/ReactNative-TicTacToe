@@ -68,6 +68,7 @@ export default class TicCurrentGame extends Component {
         }
 
         if (game !== null && !newGame ){
+            
             const { board }  = game.status;
             const player     = this._onPlayerTurn();
             name             = player.name;
@@ -75,15 +76,13 @@ export default class TicCurrentGame extends Component {
             if (board instanceof Array){
                 let   fgame     = 0;
                 gameBoard       = board;
-
-                for (let i in gameBoard){
-                    const g = gameBoard[i];
-                    if ( g.every( ( c)=>{  return c === 'X' || c === '0';  })){
-                        fgame++;
-                    }
-                }
-                if (gameBoard.length === fgame)
+                result          = TicSolve.getResult(gameBoard , playerTurn , gameOrder );
+                
+                if (result.status !== TicSolve.gameStatus.INCOMPLETE){
                     gameBoard = [];
+                    result.winningLine = [];
+                    result.status = TicSolve.gameStatus.INCOMPLETE;
+                }
             }
         }
 
