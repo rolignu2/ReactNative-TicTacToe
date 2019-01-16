@@ -41,14 +41,6 @@
     
  ```
 
-## Create a release (android only)
-
-  ``` go to cd android  ```
-  
-  ``` run ./gradlew assembleRelease  ```
-  
-  ``` or cd android && ./gradlew assembleRelease  ```
-  
 
 # have fun
  
