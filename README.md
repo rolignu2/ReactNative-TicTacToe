@@ -36,7 +36,7 @@
     You can run with react-native run-ios or android 
     and also you can run with :
                   
-                        yarn run app-ios        // open a iphone 8 simulator 
+                        yarn run app-ios        // open an iphone 8 simulator 
                         yarn run app-android    // open a current android simulator or device 
     
  ```
