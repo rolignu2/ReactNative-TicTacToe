@@ -5,7 +5,12 @@
  
  ## Installation steps
   
-``` Before installing you should check that you have yarn or npm installed  ``` 
+``` Before installing you should check that you have yarn or npm installed  ```
+
+```
+    "react": "16.6.3",
+    "react-native": "0.57.8"
+```
 
   if you do not have installed  REACT NATIVE
 
