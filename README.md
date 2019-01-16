@@ -31,7 +31,7 @@
       with yarn : yarn 
       with npm  : npm install
  ```
- * Before testing  
+ * Before run the project   
  
     ``` run react-native link  ```
     
