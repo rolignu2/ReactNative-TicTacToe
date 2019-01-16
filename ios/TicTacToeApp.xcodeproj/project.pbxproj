@@ -5,6 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -12,7 +13,11 @@
 		00C302E91ABCBA2D00DB3ED1 /* libRCTNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302DC1ABCB9D200DB3ED1 /* libRCTNetwork.a */; };
 		00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302E41ABCB9EE00DB3ED1 /* libRCTVibration.a */; };
 		00E356F31AD99517003FC87E /* TicTacToeAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* TicTacToeAppTests.m */; };
+		01CAD0FB242443B1A69AA5BE /* realpolitikbold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A10FA2AAF18F4AEC8FC7774E /* realpolitikbold.ttf */; };
+		025AF50D11774C4F939FC465 /* realpolitikout.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 86EA36F549C343E5AF3BBAA4 /* realpolitikout.ttf */; };
+		0670A12C55EF489B8722A4DA /* realpolitik3dital.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 66C9E71A6CE240ED9C3F35C8 /* realpolitik3dital.ttf */; };
 		0E10DDA7E8CC4FD19C5DE724 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 02355FB3244448BBA71457C3 /* SimpleLineIcons.ttf */; };
+		0EA73A0320604E39988C75F0 /* realpolitiksemiboldsemital.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 107B7C62AEEE4F5C94A2BA62 /* realpolitiksemiboldsemital.ttf */; };
 		11D1A2F320CAFA9E000508D9 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		133E29F31AD74F7200F7D852 /* libRCTLinking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C398B91ACF4ADC00677621 /* libRCTLinking.a */; };
 		139105C61AF99C1200B5F7CC /* libRCTSettings.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139105C11AF99BAD00B5F7CC /* libRCTSettings.a */; };
@@ -23,6 +28,8 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
+		16D7EE7E4DA64ED489D79AF8 /* realpolitikcond.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A90A3D7296824BF4A5B49296 /* realpolitikcond.ttf */; };
+		19D3F415628444CE8AFC7480 /* realpolitikoutital.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 61738772E47A49248AEA2C71 /* realpolitikoutital.ttf */; };
 		1DD6D74FB179432D95FC0C0D /* FontAwesome5_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A1323D5FEB554738A17E2360 /* FontAwesome5_Regular.ttf */; };
 		1F55D827FA184DBBA3798860 /* libRNGestureHandler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 94C4AD3EA0ED452E85615A4C /* libRNGestureHandler.a */; };
 		28928A17B96049AD907E3D3B /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 60C6217A748A4DF58FE33F5A /* FontAwesome.ttf */; };
@@ -41,10 +48,17 @@
 		2D16E6881FA4F8E400B85C8A /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D16E6891FA4F8E400B85C8A /* libReact.a */; };
 		2DCD954D1E0B4F2C00145EB5 /* TicTacToeAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* TicTacToeAppTests.m */; };
 		2DF0FFEE2056DD460020B375 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA31DF850E9000B6D8A /* libReact.a */; };
+		42903BACED5D4B13994F28EF /* realpolitikboldital.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B6BD5D1B0A4B445B9FDE202D /* realpolitikboldital.ttf */; };
 		542527B6F4CB4F298F770961 /* AntDesign.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 67509F7C5FF5412FBCC2DB6C /* AntDesign.ttf */; };
 		55484BFE3A8E418A9E12EFF4 /* FontAwesome5_Brands.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 24C264A3904E464E9B1972EC /* FontAwesome5_Brands.ttf */; };
+		5AFF7321B7D9452E9E5A48FE /* realpolitikoutsemital.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 58E76B3EA5E14824B6051DE3 /* realpolitikoutsemital.ttf */; };
+		63CC29A13A9445D9A7F0637F /* realpolitiksuperital.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F63DF6F8A76E45758ABFCF51 /* realpolitiksuperital.ttf */; };
+		663E5AA35B6241159E7C775B /* realpolitik3d.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7EF3B39E5354452486382844 /* realpolitik3d.ttf */; };
 		773C436EC669495EA0620E96 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 981C04BEFF0C49BFA394E80E /* MaterialIcons.ttf */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
+		836F199023154E1388645568 /* realpolitiksemibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5923F9CF95634B1692477306 /* realpolitiksemibold.ttf */; };
+		8E9981E40CEF402D9C2C8FDC /* realpolitikleft.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3BDE7244725945B7BAF8B735 /* realpolitikleft.ttf */; };
+		910BB38FF6974330BECB2D1D /* realpolitik.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A13D112847A6471BA4AB0D99 /* realpolitik.ttf */; };
 		A29F1B09EFB4494BB6CFB6BB /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E379DAFFE51C495489B213D4 /* Feather.ttf */; };
 		A6BE75FF86AB463388D0188B /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BC9C4A2D354B4F28AFA19B09 /* Entypo.ttf */; };
 		A7A8F1F641174F23B099351F /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D35D71CBACFC4DC1B4B3AE93 /* Zocial.ttf */; };
@@ -53,29 +67,16 @@
 		B72A3331C4F04F828A980B05 /* FontAwesome5_Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 693514047EA84D52BAF72534 /* FontAwesome5_Solid.ttf */; };
 		B831CF2B7E3E4E89ACAA215C /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 279D28A3A3A64965BA00AD94 /* Ionicons.ttf */; };
 		BD8781E2C4C747EFB12D3ADB /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F218E1AAFCB940CCB5C61ED7 /* Foundation.ttf */; };
+		C92E6460A38C42FC873F532C /* realpolitikexpand.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 02D8178C7CC64791BD545632 /* realpolitikexpand.ttf */; };
+		D1B646C597CA4F2CB4295522 /* realpolitikcondital.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 15D5886FB22C4FD885711836 /* realpolitikcondital.ttf */; };
+		D1D9DED77E054470BC5B41E1 /* realpolitiksemital.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5CFFEF9A1B6F447DA75B5716 /* realpolitiksemital.ttf */; };
+		D440BAC554634737A7FABD1F /* realpolitikexpandital.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 67F7D340EEEA441E8CE49FC1 /* realpolitikexpandital.ttf */; };
+		E72C6BC871724A5F8B371D16 /* realpolitikital.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 89E1EA5EC82E45AF9C57050D /* realpolitikital.ttf */; };
 		E7CB7AF3FF72417F97321269 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DFFA22F7A8BD4F07BDF88DFF /* Octicons.ttf */; };
 		EA989C92A3EA40E9B3D19253 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1A005202D34F4E619D9B1DAA /* EvilIcons.ttf */; };
 		ED93EA98FEB240B485B1DD67 /* Roboto_medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 029895F2201B4AF3B561663D /* Roboto_medium.ttf */; };
 		EDBD0CC3634241658ECE340A /* rubicon-icon-font.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0A753B834EA54EF9A0645E6E /* rubicon-icon-font.ttf */; };
-		910BB38FF6974330BECB2D1D /* realpolitik.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A13D112847A6471BA4AB0D99 /* realpolitik.ttf */; };
-		663E5AA35B6241159E7C775B /* realpolitik3d.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7EF3B39E5354452486382844 /* realpolitik3d.ttf */; };
-		0670A12C55EF489B8722A4DA /* realpolitik3dital.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 66C9E71A6CE240ED9C3F35C8 /* realpolitik3dital.ttf */; };
-		01CAD0FB242443B1A69AA5BE /* realpolitikbold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A10FA2AAF18F4AEC8FC7774E /* realpolitikbold.ttf */; };
-		42903BACED5D4B13994F28EF /* realpolitikboldital.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B6BD5D1B0A4B445B9FDE202D /* realpolitikboldital.ttf */; };
-		16D7EE7E4DA64ED489D79AF8 /* realpolitikcond.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A90A3D7296824BF4A5B49296 /* realpolitikcond.ttf */; };
-		D1B646C597CA4F2CB4295522 /* realpolitikcondital.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 15D5886FB22C4FD885711836 /* realpolitikcondital.ttf */; };
-		C92E6460A38C42FC873F532C /* realpolitikexpand.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 02D8178C7CC64791BD545632 /* realpolitikexpand.ttf */; };
-		D440BAC554634737A7FABD1F /* realpolitikexpandital.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 67F7D340EEEA441E8CE49FC1 /* realpolitikexpandital.ttf */; };
-		E72C6BC871724A5F8B371D16 /* realpolitikital.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 89E1EA5EC82E45AF9C57050D /* realpolitikital.ttf */; };
-		8E9981E40CEF402D9C2C8FDC /* realpolitikleft.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3BDE7244725945B7BAF8B735 /* realpolitikleft.ttf */; };
-		025AF50D11774C4F939FC465 /* realpolitikout.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 86EA36F549C343E5AF3BBAA4 /* realpolitikout.ttf */; };
-		19D3F415628444CE8AFC7480 /* realpolitikoutital.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 61738772E47A49248AEA2C71 /* realpolitikoutital.ttf */; };
-		5AFF7321B7D9452E9E5A48FE /* realpolitikoutsemital.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 58E76B3EA5E14824B6051DE3 /* realpolitikoutsemital.ttf */; };
-		836F199023154E1388645568 /* realpolitiksemibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5923F9CF95634B1692477306 /* realpolitiksemibold.ttf */; };
 		F23A3E1C90794FE48E942DC4 /* realpolitiksemiboldital.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6AA34602EA584F179392C3DD /* realpolitiksemiboldital.ttf */; };
-		0EA73A0320604E39988C75F0 /* realpolitiksemiboldsemital.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 107B7C62AEEE4F5C94A2BA62 /* realpolitiksemiboldsemital.ttf */; };
-		D1D9DED77E054470BC5B41E1 /* realpolitiksemital.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5CFFEF9A1B6F447DA75B5716 /* realpolitiksemital.ttf */; };
-		63CC29A13A9445D9A7F0637F /* realpolitiksuperital.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F63DF6F8A76E45758ABFCF51 /* realpolitiksuperital.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -373,7 +374,9 @@
 		00E356F21AD99517003FC87E /* TicTacToeAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TicTacToeAppTests.m; sourceTree = "<group>"; };
 		02355FB3244448BBA71457C3 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/native-base/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
 		029895F2201B4AF3B561663D /* Roboto_medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Roboto_medium.ttf; path = "../node_modules/native-base/Fonts/Roboto_medium.ttf"; sourceTree = "<group>"; };
+		02D8178C7CC64791BD545632 /* realpolitikexpand.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = realpolitikexpand.ttf; path = ../assets/fonts/realpolitikexpand.ttf; sourceTree = "<group>"; };
 		0A753B834EA54EF9A0645E6E /* rubicon-icon-font.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "rubicon-icon-font.ttf"; path = "../node_modules/native-base/Fonts/rubicon-icon-font.ttf"; sourceTree = "<group>"; };
+		107B7C62AEEE4F5C94A2BA62 /* realpolitiksemiboldsemital.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = realpolitiksemiboldsemital.ttf; path = ../assets/fonts/realpolitiksemiboldsemital.ttf; sourceTree = "<group>"; };
 		139105B61AF99BAD00B5F7CC /* RCTSettings.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTSettings.xcodeproj; path = "../node_modules/react-native/Libraries/Settings/RCTSettings.xcodeproj"; sourceTree = "<group>"; };
 		139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTWebSocket.xcodeproj; path = "../node_modules/react-native/Libraries/WebSocket/RCTWebSocket.xcodeproj"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* TicTacToeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TicTacToeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -384,6 +387,7 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = TicTacToeApp/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = TicTacToeApp/main.m; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
+		15D5886FB22C4FD885711836 /* realpolitikcondital.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = realpolitikcondital.ttf; path = ../assets/fonts/realpolitikcondital.ttf; sourceTree = "<group>"; };
 		1A005202D34F4E619D9B1DAA /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/native-base/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
 		24C264A3904E464E9B1972EC /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Brands.ttf; path = "../node_modules/native-base/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; };
 		279D28A3A3A64965BA00AD94 /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/native-base/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
@@ -391,43 +395,40 @@
 		2D02E4901E0B4A5D006451C7 /* TicTacToeApp-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TicTacToeApp-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D16E6891FA4F8E400B85C8A /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AFDF77D4C0C4B0F91C685D3 /* Roboto.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Roboto.ttf; path = "../node_modules/native-base/Fonts/Roboto.ttf"; sourceTree = "<group>"; };
+		3BDE7244725945B7BAF8B735 /* realpolitikleft.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = realpolitikleft.ttf; path = ../assets/fonts/realpolitikleft.ttf; sourceTree = "<group>"; };
+		58E76B3EA5E14824B6051DE3 /* realpolitikoutsemital.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = realpolitikoutsemital.ttf; path = ../assets/fonts/realpolitikoutsemital.ttf; sourceTree = "<group>"; };
+		5923F9CF95634B1692477306 /* realpolitiksemibold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = realpolitiksemibold.ttf; path = ../assets/fonts/realpolitiksemibold.ttf; sourceTree = "<group>"; };
+		5CFFEF9A1B6F447DA75B5716 /* realpolitiksemital.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = realpolitiksemital.ttf; path = ../assets/fonts/realpolitiksemital.ttf; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		60C6217A748A4DF58FE33F5A /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/native-base/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
+		61738772E47A49248AEA2C71 /* realpolitikoutital.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = realpolitikoutital.ttf; path = ../assets/fonts/realpolitikoutital.ttf; sourceTree = "<group>"; };
+		66C9E71A6CE240ED9C3F35C8 /* realpolitik3dital.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = realpolitik3dital.ttf; path = ../assets/fonts/realpolitik3dital.ttf; sourceTree = "<group>"; };
 		67509F7C5FF5412FBCC2DB6C /* AntDesign.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = AntDesign.ttf; path = "../node_modules/native-base/Fonts/AntDesign.ttf"; sourceTree = "<group>"; };
+		67F7D340EEEA441E8CE49FC1 /* realpolitikexpandital.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = realpolitikexpandital.ttf; path = ../assets/fonts/realpolitikexpandital.ttf; sourceTree = "<group>"; };
 		693514047EA84D52BAF72534 /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Solid.ttf; path = "../node_modules/native-base/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; };
+		6AA34602EA584F179392C3DD /* realpolitiksemiboldital.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = realpolitiksemiboldital.ttf; path = ../assets/fonts/realpolitiksemiboldital.ttf; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
+		7EF3B39E5354452486382844 /* realpolitik3d.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = realpolitik3d.ttf; path = ../assets/fonts/realpolitik3d.ttf; sourceTree = "<group>"; };
 		8256AC12FDD34C99A6A9E074 /* RNGestureHandler.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNGestureHandler.xcodeproj; path = "../node_modules/react-native-gesture-handler/ios/RNGestureHandler.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
+		86EA36F549C343E5AF3BBAA4 /* realpolitikout.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = realpolitikout.ttf; path = ../assets/fonts/realpolitikout.ttf; sourceTree = "<group>"; };
+		89E1EA5EC82E45AF9C57050D /* realpolitikital.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = realpolitikital.ttf; path = ../assets/fonts/realpolitikital.ttf; sourceTree = "<group>"; };
 		94C4AD3EA0ED452E85615A4C /* libRNGestureHandler.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNGestureHandler.a; sourceTree = "<group>"; };
 		981C04BEFF0C49BFA394E80E /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/native-base/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
+		A10FA2AAF18F4AEC8FC7774E /* realpolitikbold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = realpolitikbold.ttf; path = ../assets/fonts/realpolitikbold.ttf; sourceTree = "<group>"; };
 		A1323D5FEB554738A17E2360 /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Regular.ttf; path = "../node_modules/native-base/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; };
+		A13D112847A6471BA4AB0D99 /* realpolitik.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = realpolitik.ttf; path = ../assets/fonts/realpolitik.ttf; sourceTree = "<group>"; };
+		A90A3D7296824BF4A5B49296 /* realpolitikcond.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = realpolitikcond.ttf; path = ../assets/fonts/realpolitikcond.ttf; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
+		B6BD5D1B0A4B445B9FDE202D /* realpolitikboldital.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = realpolitikboldital.ttf; path = ../assets/fonts/realpolitikboldital.ttf; sourceTree = "<group>"; };
 		BC9C4A2D354B4F28AFA19B09 /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/native-base/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
 		D35D71CBACFC4DC1B4B3AE93 /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/native-base/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
 		DFFA22F7A8BD4F07BDF88DFF /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/native-base/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
 		E379DAFFE51C495489B213D4 /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/native-base/Fonts/Feather.ttf"; sourceTree = "<group>"; };
 		E73B96F80BCF4BCA8120EACD /* tictac.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = tictac.ttf; path = ../assets/fonts/tictac.ttf; sourceTree = "<group>"; };
 		F218E1AAFCB940CCB5C61ED7 /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/native-base/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
+		F63DF6F8A76E45758ABFCF51 /* realpolitiksuperital.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = realpolitiksuperital.ttf; path = ../assets/fonts/realpolitiksuperital.ttf; sourceTree = "<group>"; };
 		FAF5C26BF84D454885B6386E /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/native-base/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
-		A13D112847A6471BA4AB0D99 /* realpolitik.ttf */ = {isa = PBXFileReference; name = "realpolitik.ttf"; path = "../assets/fonts/realpolitik.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		7EF3B39E5354452486382844 /* realpolitik3d.ttf */ = {isa = PBXFileReference; name = "realpolitik3d.ttf"; path = "../assets/fonts/realpolitik3d.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		66C9E71A6CE240ED9C3F35C8 /* realpolitik3dital.ttf */ = {isa = PBXFileReference; name = "realpolitik3dital.ttf"; path = "../assets/fonts/realpolitik3dital.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		A10FA2AAF18F4AEC8FC7774E /* realpolitikbold.ttf */ = {isa = PBXFileReference; name = "realpolitikbold.ttf"; path = "../assets/fonts/realpolitikbold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		B6BD5D1B0A4B445B9FDE202D /* realpolitikboldital.ttf */ = {isa = PBXFileReference; name = "realpolitikboldital.ttf"; path = "../assets/fonts/realpolitikboldital.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		A90A3D7296824BF4A5B49296 /* realpolitikcond.ttf */ = {isa = PBXFileReference; name = "realpolitikcond.ttf"; path = "../assets/fonts/realpolitikcond.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		15D5886FB22C4FD885711836 /* realpolitikcondital.ttf */ = {isa = PBXFileReference; name = "realpolitikcondital.ttf"; path = "../assets/fonts/realpolitikcondital.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		02D8178C7CC64791BD545632 /* realpolitikexpand.ttf */ = {isa = PBXFileReference; name = "realpolitikexpand.ttf"; path = "../assets/fonts/realpolitikexpand.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		67F7D340EEEA441E8CE49FC1 /* realpolitikexpandital.ttf */ = {isa = PBXFileReference; name = "realpolitikexpandital.ttf"; path = "../assets/fonts/realpolitikexpandital.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		89E1EA5EC82E45AF9C57050D /* realpolitikital.ttf */ = {isa = PBXFileReference; name = "realpolitikital.ttf"; path = "../assets/fonts/realpolitikital.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		3BDE7244725945B7BAF8B735 /* realpolitikleft.ttf */ = {isa = PBXFileReference; name = "realpolitikleft.ttf"; path = "../assets/fonts/realpolitikleft.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		86EA36F549C343E5AF3BBAA4 /* realpolitikout.ttf */ = {isa = PBXFileReference; name = "realpolitikout.ttf"; path = "../assets/fonts/realpolitikout.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		61738772E47A49248AEA2C71 /* realpolitikoutital.ttf */ = {isa = PBXFileReference; name = "realpolitikoutital.ttf"; path = "../assets/fonts/realpolitikoutital.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		58E76B3EA5E14824B6051DE3 /* realpolitikoutsemital.ttf */ = {isa = PBXFileReference; name = "realpolitikoutsemital.ttf"; path = "../assets/fonts/realpolitikoutsemital.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		5923F9CF95634B1692477306 /* realpolitiksemibold.ttf */ = {isa = PBXFileReference; name = "realpolitiksemibold.ttf"; path = "../assets/fonts/realpolitiksemibold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		6AA34602EA584F179392C3DD /* realpolitiksemiboldital.ttf */ = {isa = PBXFileReference; name = "realpolitiksemiboldital.ttf"; path = "../assets/fonts/realpolitiksemiboldital.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		107B7C62AEEE4F5C94A2BA62 /* realpolitiksemiboldsemital.ttf */ = {isa = PBXFileReference; name = "realpolitiksemiboldsemital.ttf"; path = "../assets/fonts/realpolitiksemiboldsemital.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		5CFFEF9A1B6F447DA75B5716 /* realpolitiksemital.ttf */ = {isa = PBXFileReference; name = "realpolitiksemital.ttf"; path = "../assets/fonts/realpolitiksemital.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		F63DF6F8A76E45758ABFCF51 /* realpolitiksuperital.ttf */ = {isa = PBXFileReference; name = "realpolitiksuperital.ttf"; path = "../assets/fonts/realpolitiksuperital.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
