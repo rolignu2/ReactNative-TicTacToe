@@ -41,6 +41,12 @@ export default class TicNewGame extends Component {
                 this.dataGame.p2.name       = name;
                 this.dataGame.p2.symbol     = symbol;
                 this.dataGame.p2.score      = 0;
+                this.dataGame.status.board  = [];
+                this.dataGame.status.winner = {
+                    symbol : "",
+                    tie    : false ,
+                    date   : new Date()
+                }
                 const {navigation}          = this.props;
                 this.storage.setCurrentGame(this.dataGame)
                 navigation.navigate("CurrentGameScreen" );
