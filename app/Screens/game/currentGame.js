@@ -9,7 +9,8 @@ import {
     Row, 
     Button, 
     Text,
-    Title
+    Title,
+    Content
 }                                   from 'native-base';
 import * as Animatable              from 'react-native-animatable';
 import { TicTacButton }             from '../../Components/buttons';
@@ -335,6 +336,7 @@ export default class TicCurrentGame extends Component {
                  justifyContent : 'center',
                  alignItems : 'center'  
             }}>
+                <Content>
                 <View>
                     <View style={{ alignItems : 'center' , marginTop : 10 }} >
                          <TicTacTitle color={this.foreColor} />
@@ -354,6 +356,7 @@ export default class TicCurrentGame extends Component {
                     <TicTacButton title={'MENU'} action={ ()=>{ navigation.navigate('Home'); }} />
                     {this._actionButton()}
                 </View>
+                </Content>
             </Container>
         );
     }
