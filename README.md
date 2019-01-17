@@ -23,7 +23,7 @@
  * Go to the directory 
  
  ```
-     cd  /computer/ReactNative-TicTacToe
+     cd  /YOURcomputer/ReactNative-TicTacToe
  ```
  * Execute yarn or npm installation 
  
