@@ -29,6 +29,7 @@ export default class TicNewGame extends Component {
             case 1 :
                 this.dataGame.p1.name       = name;
                 this.dataGame.p1.symbol     = symbol;
+                this.dataGame.p1.score      = 0;
                 this.setState({ 
                         playerOneVisible : false ,
                         playerTwoVisible : true  ,
@@ -39,6 +40,7 @@ export default class TicNewGame extends Component {
             case 2 :
                 this.dataGame.p2.name       = name;
                 this.dataGame.p2.symbol     = symbol;
+                this.dataGame.p2.score      = 0;
                 const {navigation}          = this.props;
                 this.storage.setCurrentGame(this.dataGame)
                 navigation.navigate("CurrentGameScreen" );
